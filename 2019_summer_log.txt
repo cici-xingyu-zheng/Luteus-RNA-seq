@@ -1,0 +1,2 @@
+ The sample sequence (not confirmed)
+ “MnaWT”, “MlvWT1", “MlvWT2”, “MlvWT3", “Vr1-1a”, “Vr1-3a”, “Vr1-5”
