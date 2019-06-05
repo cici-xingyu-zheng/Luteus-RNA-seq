@@ -1,1 +1,3 @@
+This file contains plots for sequencing results, namely error rate and nt distribution;
+Since all samples are luteus, the content look very similar, which is good.
 
