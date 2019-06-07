@@ -1,2 +1,29 @@
- The sample sequence (not confirmed)
- “MnaWT”, “MlvWT1", “MlvWT2”, “MlvWT3", “Vr1-1a”, “Vr1-3a”, “Vr1-5”
+- The sample S1 to S7 correspond to (confirmed)
+ M. naiandinus (S1), M. variegatus transformed (S2-S4), M. variegatus control (S5-S7)
+ 
+- Got the HT-seq results on 06/05; Ron's original code setting, no filtering or merging
+
+##
+* transformed txt to csv files using R;
+* create a data.frame for all 7 samples' read together;
+* create metadata for the samples
+* create DE-Seq object
+* Determine the size factors to use for normalization
+* extract the normalized counts
+
+* Unsupervised clustering analyses: log transformation
+* Plot the heatmap and PCA
+
+## continue on 06/07
+* Dispersion shrinkage looks normal
+* Shrink and plot the MA plot 
+* Here we go the result summary:
+    out of 41997 with nonzero total read count
+    adjusted p-value < 0.05
+    LFC > 0 (up)       : 345, 0.82%
+    LFC < 0 (down)     : 287, 0.68%
+    outliers [1]       : 0, 0%
+    low counts [2]     : 7284, 17%
+    (mean count < 3)
+* do the heat map and volcano plot 
+
