@@ -1,1 +1,0 @@
-Here is the general report for HT-seq result in the form of an R-markdown.
