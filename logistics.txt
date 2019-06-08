@@ -1,4 +1,9 @@
 
+•	The raw fastq data are from: “cooley_lab google drive/Transcriptome/Mlv_Mna_RNAseq_Libraries”;
+•	Alignment is performed by Bowtie2 against C5_mlut.fasta;
+•	Read-count is done by HTSeq with C5_mlut.gtf;
+•	Identities of Sample 1-7 are: M. naiandinus (S1), M. variegatus RNAi transformed (S2-S4), M. variegatus control (S5-S7)
+
 Bowtie 2 
 
 * Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences. It is particularly good at aligning reads of about 50 up to 100s of characters to relatively long (e.g. mammalian) genomes. 
