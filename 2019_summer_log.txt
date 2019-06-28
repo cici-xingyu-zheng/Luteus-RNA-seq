@@ -25,5 +25,24 @@
     outliers [1]       : 0, 0%
     low counts [2]     : 7284, 17%
     (mean count < 3)
+ 
 * do the heat map and volcano plot 
+
+## Later in June:
+    We have the list of differentially expressed genes from the RNAi experiment now, and we want to do some annotation for gene identity. 
+
+* first I split the lut cds files, and subset the genes that correspone  to the de-mRNA reads. 
+* then I blast each of them against Arabidopsis protein database using blastx. 
+
+* Dr. Puzey translated all the single gene fasta to protein and did a protein blast, and I used that file to add the discription. 
+
+* I downloaded a superfamily info for about 7000 arabidopsis genes. That matches to about 250 of our de-mRNA. 
+
+
+
+## Finding the gene candidate for PLA1
+
+* With a lut gene bed file which contains scaffold information and gene names, I subset the mRNAs of naindinus that is on Sc26 and Sc1078.
+
+
 
