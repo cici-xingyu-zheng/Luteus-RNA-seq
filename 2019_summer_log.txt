@@ -44,5 +44,30 @@
 
 * With a lut gene bed file which contains scaffold information and gene names, I subset the mRNAs of naindinus that is on Sc26 and Sc1078.
 
+* In Sc26 we found that Mlu_01078 corresponds to a region that enbeds 4 copies of mybs. 
+
+* With Dr. Cooley's duplicate positional info, I modified Mlu_01078 exon in Mlu gtf file:
+
+lcl|scaffold_26	CoGe	exon	123985	124295	.	+	.	Parent=Mlu_01792.1.mRNA1;ID=Mlu_01792.exon3;Name=Mlu_01792.exon3;Alias=Mlu_01792,Mlu_01792-mRNA-1,maker-scaffold_26-snap-gene-1.56-mRNA-1;exon=Mlu_01792.1.exon3;coge_fid=630274294
+
+lcl|scaffold_26	CoGe	exon	131591	131701	.	+	.	Parent=Mlu_01792.2.mRNA1;ID=Mlu_01792.exon4;Name=Mlu_01792.exon4;Alias=Mlu_01792,Mlu_01792-mRNA-1,maker-scaffold_26-snap-gene-1.56-mRNA-1;exon=Mlu_01792.exon4;coge_fid=630274294
+lcl|scaffold_26	CoGe	exon	131770	131903	.	+	.	Parent=Mlu_01792.2.mRNA1;ID=Mlu_01792.exon5;Name=Mlu_01792.exon5;Alias=Mlu_01792,Mlu_01792-mRNA-1,maker-scaffold_26-snap-gene-1.56-mRNA-1;exon=Mlu_01792.exon5;coge_fid=630274294
+
+lcl|scaffold_26	CoGe	exon	138333	138387	.	+	.	
+Parent=Mlu_01792.3.mRNA1;ID=Mlu_01792.exon6;Name=Mlu_01792.exon6;Alias=Mlu_01792,Mlu_01792-mRNA-1,maker-scaffold_26-snap-gene-1.56-mRNA-1;exon=Mlu_01792.exon6;coge_fid=630274294
+lcl|scaffold_26	CoGe	exon	138512	138626	.	+	.	Parent=Mlu_01792.3.mRNA1;ID=Mlu_01792.exon7;Name=Mlu_01792.exon7;Alias=Mlu_01792,Mlu_01792-mRNA-1,maker-scaffold_26-snap-gene-1.56-mRNA-1;exon=Mlu_01792.exon7;coge_fid=630274294
+lcl|scaffold_26	CoGe	exon	138734	138919	.	+	.	Parent=Mlu_01792.3.mRNA1;ID=Mlu_01792.exon8;Name=Mlu_01792.exon8;Alias=Mlu_01792,Mlu_01792-mRNA-1,maker-scaffold_26-snap-gene-1.56-mRNA-1;exon=Mlu_01792.exon8;coge_fid=630274294
+
+lcl|scaffold_26	CoGe	exon	146906	147000	.	+	.	Parent=Mlu_01792.3.mRNA1;ID=Mlu_01792.exon9;Name=Mlu_01792.exon9;Alias=Mlu_01792,Mlu_01792-mRNA-1,maker-scaffold_26-snap-gene-1.56-mRNA-1;exon=Mlu_01792.exon9;coge_fid=630274294
+lcl|scaffold_26	CoGe	exon	147166	147280	.	+	.	Parent=Mlu_01792.3.mRNA1;ID=Mlu_01792.exon10;Name=Mlu_01792.exon10;Alias=Mlu_01792,Mlu_01792-mRNA-1,maker-scaffold_26-snap-gene-1.56-mRNA-1;exon=Mlu_01792.exon10;coge_fid=630274294
+lcl|scaffold_26	CoGe	exon	147422	148007	.	+	.	Parent=Mlu_01792.3.mRNA1;ID=Mlu_01792.exon11;Name=Mlu_01792.exon11;Alias=Mlu_01792,Mlu_01792-mRNA-1,maker-scaffold_26-snap-gene-1.56-mRNA-1;exon=Mlu_01792.exon11;coge_fid=630274294
+
+* Then I ran HTSEQ for sample 1 again, which gives me:
+Mlu_01792.1.mRNA1    6
+Mlu_01792.2.mRNA1    0
+Mlu_01792.3.mRNA1    3
+Mlu_01792.4.mRNA1    441
+
+Mlu_01792.4.mRNA1 corresponds to Myb3a.
 
 
