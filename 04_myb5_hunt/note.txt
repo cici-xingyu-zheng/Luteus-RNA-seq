@@ -1,1 +1,2 @@
-This file contains everything that I proofread and re-do in DESeq2 after fixing the sample assignment problem.
+- This file contains everything that I proofread and re-do in DESeq2 after fixing the sample assignment problem;
+- If we need to go through the analysis again, download the file and run the R code will do.
