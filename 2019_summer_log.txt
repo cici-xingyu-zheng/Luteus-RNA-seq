@@ -1,5 +1,5 @@
 - The sample S1 to S7 correspond to (confirmed)
- M. naiandinus (S1), M. variegatus transformed (S2-S4), M. variegatus control (S5-S7)
+ M. naiandinus (S1), M. variegatus control (S5-S7), M. variegatus transformed (S2-S4).
  
 - Got the HT-seq results on 06/05; Ron's original code setting, no filtering or merging
 
