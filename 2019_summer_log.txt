@@ -71,3 +71,6 @@ Mlu_01792.4.mRNA1    441
 Mlu_01792.4.mRNA1 corresponds to Myb3a.
 
 
+## Note on 07/11
+We are able to pinpoint myb5 for variegatus in the later analysis, details see "myb5_report.pdf".
+
