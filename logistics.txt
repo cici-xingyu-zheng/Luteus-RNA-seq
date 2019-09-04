@@ -3,6 +3,7 @@
 •	Alignment is performed by Bowtie2 against C5_mlut.fasta;
 •	Read-count is done by HTSeq with C5_mlut.gtf;
 •	Identities of Sample 1-7 are: M. naiandinus (S1), M. variegatus control (S2-S4), M. variegatus RNAi transformed (S5-S7)
+•	Gene sequences are grabbed from single gene CDS, blasts are performed with NCBI-blast commandline tool. 
 
 Bowtie 2 
 
