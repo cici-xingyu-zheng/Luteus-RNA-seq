@@ -3,9 +3,6 @@
 ## but should contain 'fastq' (e.g. not 'fq') in the file name.  No other files 
 ## in the fastq folder should have 'fastq' in their file name.
 ##
-## Ron Smith - 2/13/2017
-## rdsmith@email.wm.edu
-##
 ##
 ## ----------------------------------------------------------------------
 
@@ -18,7 +15,7 @@ NUM_CORES=10
 MAIN=/Users/puzey/Desktop/Cici
 
 ## Path to fasta file (without file extension)
-REF=$MAIN/Ref_C5/MimLut
+REF=$MAIN/Lut_Genome/Mlut
 
 ## Path to fastq files
 FASTQ=$MAIN/fastq
