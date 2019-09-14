@@ -74,3 +74,33 @@ Mlu_01792.4.mRNA1 corresponds to Myb3a.
 ## Note on 07/11
 We are able to pinpoint myb5 for variegatus in the later analysis, details see "myb5_report.pdf".
 
+
+...
+
+## Resumed 09/13
+We use the Lut_C5 genome which is a SNP-corrected version, but not exactly the published genome, so we are running the pipeline again. The gtf file stays the same; but cds and genome are the published version. 
+
+Use "bowtie2-build lut_ref" to build index; then we run the code pipeline;
+
+Meanwhile we do the annotation again. 
+
+- use a small script to partition the CDS: 
+
+"
+while read line
+do
+    if [[ ${line:0:1} == '>' ]]
+    then
+        outfile=${line#>}.fa
+        echo $line > $outfile
+    else
+        echo $line >> $outfile
+    fi
+done < mlut_cds.fa
+"
+
+- then I tried to to keyword searching for structural genes in the blastp result from the summer. Basically:
+
+" grep -i "keyword" result.csv > keyword.csv
+"
+
