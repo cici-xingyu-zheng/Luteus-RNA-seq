@@ -1,9 +1,5 @@
 ## Script to sort SAM files and output as BAM. Original SAM files are backed up
 ## to a different folder.
-##
-## Ron Smith - 2/13/2017
-## rdsmith@email.wm.edu
-##
 ## ----------------------------------------------------------------------------
 
 ## ----- Settings --------------------------------------------
