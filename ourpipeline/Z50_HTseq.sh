@@ -10,7 +10,7 @@
 MAIN=/Users/puzey/Desktop/Cici
 
 ## Path to gff file
-GFF=$MAIN/Ref_C5/MimLut_lcl.gff
+GFF=$MAIN/Lut_Genome/MimLut_lcl.gff
 
 ## Path to the BAM files
 BAM=$MAIN/SAMBAM
