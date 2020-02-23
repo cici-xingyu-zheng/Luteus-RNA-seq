@@ -1,0 +1,130 @@
+
+20200222 Concepts 
+
+1 DNA annotation (from Wikipedia)
+
+DNA annotation or genome annotation is the process of identifying the locations of genes and all of the coding regions in a genome and determining what those genes do. An annotation (irrespective of the context) is a note added by way of explanation or commentary. Once a genome is sequenced, it needs to be annotated to make sense of it.
+
+For DNA annotation, a previously unknown sequence representation of genetic material is enriched with information relating genomic position to intron-exon boundaries, regulatory sequences, repeats, gene names and protein products. This annotation is stored in genomic databases such as Mouse Genome Informatics, FlyBase, and WormBase. Educational materials on some aspects of biological annotation from the 2006 Gene Ontology annotation camp and similar events are available at the Gene Ontology website.[2]
+
+The National Center for Biomedical Ontology (www.bioontology.org) develops tools for automated annotation[3] of database records based on the textual descriptions of those records.
+
+As a general method, dcGO [4] has an automated procedure for statistically inferring associations between ontology terms and protein domains or combinations of domains from the existing gene/protein-level annotations.
+
+A simple method of gene annotation relies on homology based search tools, like BLAST, to search for homologous genes in specific databases, the resulting information is then used to annotate genes and genomes.[6] However, as information is added to the annotation platform, manual annotators become capable of deconvoluting discrepancies between genes that are given the same annotation. Some databases use genome context information, similarity scores, experimental data, and integrations of other resources to provide genome annotations through their Subsystems approach. Other databases (e.g. Ensembl) rely on curated data sources as well as a range of different software tools in their automated genome annotation pipeline.
+
+Structural annotation consists of the identification of genomic elements.
+
+- ORFs and their localization
+- gene structure
+- coding regions
+- location of regulatory motifs
+
+Functional annotation consists of attaching biological information to genomic elements.
+
+- biochemical function
+- biological function
+- involved regulation and interactions
+- expression
+
+
+
+2 GO and GO_Enrichment_Analysis
+
+GO annotation is the process by which you assign a functional category to proteins. 
+The gene ontology has peculiar properties with respect to e.g. kegg annotations. First of all it is hierarchical, meaning that there are categories nested within larger categories and so on.
+
+GO enrichment analysis instead is the process by which, given a group of genes (e.g. differentially expressed genes in a certain condition) and a GO annotation of the full genome, you identify the processes that are enriched in the input group. In this way you can assess if your group of genes has some coherent functional signal.
+
+- WHY GO_Enrichment_Analysis?
+
+When we have a large list of genes of interest, such as a list of differentially expressed genes obtained from an RNA-Seq experiment, how do we extract biological meaning from it?
+
+One way to do so is to perform functional enrichment analysis. This method consists of applying statistical tests to verify if genes of interest are more often associated to certain biological functions than what would be expected in a random set of genes. In this tutorial you will learn about enrichment analysis and how to perform it.
+
+- DEF: 
+
+Gene Ontology (GO) term enrichment is a technique for interpreting sets of genes making use of the Gene Ontology system of classification, in which genes are assigned to a set of predefined bins depending on their functional characteristics. For example, the gene FasR is categorized as being a receptor, involved in apoptosis and located on the plasma membrane.
+
+Researchers performing high-throughput experiments that yield sets of genes (for example, genes that are differentially expressed under different conditions) often want to retrieve a functional profile of that gene set, in order to better understand the underlying biological processes. This can be done by comparing the input gene set with each of the bins (terms) in the GO – a statistical test can be performed for each bin to see if it is enriched for the input genes.
+
+The output of the analysis is typically a ranked list of GO terms, each associated with a p-value.
+
+- METHODS: 
+
+There are a variety of methods for performing a term enrichment using GO. Methods may vary according to the type of statistical test applied, the most common being a Fisher's exact test / hypergeometric test. Some methods make use of Bayesian statistics.[2] There is also variability in the type of correction applied for Multiple comparisons, the most common being Bonferroni correction.
+
+Methods also vary in their input – some take unranked gene sets, others ranked gene sets, with more sophisticated methods allowing each gene to be associated with a magnitude (e.g. expression level), avoiding arbitrary cutoffs.
+
+Another approach to reduce the complexity of the results is to use a shallower version of GO, the GO slims. GO slims are transversal cuts of GO that cover all key branches but lack specific terms. 
+
+
+-----
+what I want to do? 
+- First obtain the arab. GO & PO standard representation; 
+  - later can decide whether to use the slim version or not;
+  - Output should be a csv or some sort depending on the analysis package; 
+  - Add the mlu gene in the front though! mlu_gene|| ara_gene|| annotated stuff; 
+- Then do a enrichment analysis with topGO in R
+
+------
+
+
+
+
+20200223 Start Using topGO R for Enrichment Analysis 
+
+a simple working session using topGO would be like: 
+
+1. Data preparation: List of genes identifiers, gene scores, list of differentially expressed genes or a criteria for selecting genes based on their scores, as well as gene-to-GO annotations are all collected and stored in a single R object.
+
+2. Running the enrichment tests: Using the object created in the first step the user can perform enrichment analysis using any feasible mixture of statistical tests and methods that deal with the GO topology.
+
+3. Analysis of the results: The results obtained in the second step are analysed using summary functions and visualisation tools.
+
+The statistical tests they use are Kolmogorov-Smirnov test and Fisher’s exact test.
+
+- While downloading I found a lot of package not compatible; I guess that's cus my R version 3.6.0 being outdated probably need to update a long time ago but let's do that first.
+
+- The new R version is 3.6.2;
+
+- Forgot the difference between install, load and mirror let's find out:
+  - R packages are collections of functions and data sets developed by the community. They increase the power of R by          improving existing base R functionalities, or by adding new ones. For example, if you are usually working with data frames, probably you will have heard about dplyr or data.table, two of the most popular R packages.
+  - The “Comprehensive R Archive Network” ( CRAN ) is a collection of sites which carry identical material, consisting of the R distribution(s), the contributed extensions, documentation for R, and binaries.
+  - To look up package info: 
+    - packageDescription("stats")
+    - help(package = "stats")
+    - browseVignettes() function for Intro level usages
+  - A repository is a place where packages are located so you can install them from it. Although you or your organization might have a local repository, typically they are online and accessible to everyone. Three of the most popular repositories for R packages are: CRAN, Bioconductor and GitHub
+  - CRAN Mirrors what are they：CRAN is a network of servers (each of them called a “mirror”), so you can specify which one you would like to use. e.g. if you want to use Ghent University's own server, do: install.packages("vioplot", repo = "https://lib.ugent.be/CRAN/")
+  - Interesting about installing things from Bioconductor: 
+    - source("https://bioconductor.org/biocLite.R"); biocLite() or biocLite(c("GenomicFeatures", "AnnotationDbi"));
+  - On the Library fuction: a package is a like a book, a library is like a library; you use library() to check a package out of the library;
+  - Topics can be explored through CYAN network: https://cran.r-project.org/web/views/ 
+  
+- Okay cool lets get back to work;
+
+- They load directly the annotation for their genes from AnnotationData Packages under Bioconductor, find the arabidopsis one "org.At.tair.db";
+
+- The elim method was design to be more conservative than the classic method and therefore one expects the p-values returned by the former method are lower bounded by the p-values returned by the later method. 
+   
+- Good source of ref: https://ucdavis-bioinformatics-training.github.io/2018-June-RNA-Seq-Workshop/friday/enrichment.html
+
+- The procedure is pretty straight forward when our goal is just simple as to take a glimpse of enriched gene function;
+
+- 1) create the topGO object, 2) conduct tests and 3) visualize result using graph/table
+
+- with the help of the code above was able to do a pathway enrichment test as well, which is kind of awesome; 
+
+
+--- v(≧∇≦v)三(v≧∇≦)vv(≧∇≦v)三(v≧∇≦)vv(≧∇≦v)三(v≧∇≦)vv(≧∇≦v)三(v≧∇≦)v lol
+
+- We still need to grab GO & PO terms for the 635 genes I guess...
+
+
+
+
+
+
+
+ 
