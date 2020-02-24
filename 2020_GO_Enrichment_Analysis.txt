@@ -121,8 +121,8 @@ The statistical tests they use are Kolmogorov-Smirnov test and Fisher’s exact 
 
 - We still need to grab GO & PO terms for the 635 genes I guess...
 
-
-
+- Used this line but each Arab gene has multiple matches??? Have to ask other peple's opinion later...
+- grep -Fwf id.txt GOSLIM_copy.csv > all_matched.csv
 
 
 
